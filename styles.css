@@ -1,0 +1,9 @@
+* {
+    margin: 0;
+    border: 0;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #2B2D42;
+}

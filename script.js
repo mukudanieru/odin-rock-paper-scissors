@@ -3,22 +3,6 @@ const CHOICES = ["rock", "paper", "scissors"];
 let humanScore = 0;
 let computerScore = 0;
 
-function playGame() {
-    const ROUNDS = 5;
-
-    for (let i = 0; i < ROUNDS; i++) {
-        playRound(getHumanChoice(), getComputerChoice());
-    }
-
-    if (humanScore === computerScore) {
-        console.log("It's a tie!");
-    } else if (humanScore > computerScore) {
-        console.log("You won!");
-    } else {
-        console.log("The computer won!")
-    }
-}
-
 function playRound(humanChoice, computerChoice) {
     alert(`Computer choice: ${computerChoice}`);
 
