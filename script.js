@@ -3,6 +3,16 @@ const CHOICES = ["rock", "paper", "scissors"];
 let humanScore = 0;
 let computerScore = 0;
 
+const userScoreElement = document.querySelector(".user-container > .user-score");
+const computerScoreElement = document.querySelector(".cpu-container > .cpu-score");
+
+initializeScore();
+
+function initializeScore() {
+    userScoreElement.textContent = humanScore;
+    computerScoreElement.textContent = computerScore;
+}
+
 function playRound(humanChoice, computerChoice) {
     alert(`Computer choice: ${computerChoice}`);
 

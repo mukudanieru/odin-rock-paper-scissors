@@ -1,9 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Oswald:wght@200..700&display=swap');
+
 * {
     margin: 0;
     border: 0;
+    box-sizing: border-box;
+    font-family: "Inter";
 }
 
 body {
     min-height: 100vh;
     background-color: #2B2D42;
+}
+
+body > #container {
+    display: flex;
+    flex-direction: column;
+}
+
+#header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scoreboard {
+    display: flex;
+}
+
+#header > .scoreboard {
+    width: 550px;
+    height: 140px;
+
+    background-color: #8D99AE;
+    border-radius: 5px;
+    margin: 25px;
+
+    justify-content: space-between;
+    align-items: center;
+}
+
+.scoreboard > .user-container,
+.scoreboard > .cpu-container {
+    background-color: white;
+    width: 150px;
+    height: 85%;
+    border-radius: 5px;
+    margin: 0px 12px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.scoreboard > .title-container {
+    height: 85%;
+    flex: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title-container > .title {
+    text-align: center;
+
+    font-family: "Oswald";
+    font-weight: bold;
+    font-size: 22px;
+    color: white;
+
+    width: 40%;
+}
+
+.user-container > .user-title,
+.cpu-container > .cpu-title {
+    font-size: 16px;
+    flex: 0 0 25%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-container > .user-score,
+.cpu-container > .cpu-score {
+    font-size: 65px;
+    font-weight: bold;
+    flex: 0 0 75%;
+
+    display: flex; 
+    justify-content: center;
+    margin-top: 4px;
 }
