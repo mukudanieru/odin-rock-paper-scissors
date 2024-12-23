@@ -17,16 +17,18 @@ a {
     color: white;
 }
 
+
 body > #container {
     display: flex;
     flex-direction: column;
+    height: 100vh;
 }
 
-#container > div {
-    border: 1px solid gray;
+#header, #footer {
+    flex: 0 0 auto;
 }
 
-#header {
+#container > #header {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -100,6 +102,7 @@ body > #container {
 
 #container > #choices-display {
     display: flex;
+    flex: 2;
     align-items: center;
     justify-content: center;
     gap: 12px;
@@ -170,8 +173,9 @@ body > #container {
     text-align: center;
 }
 
-#choices-picker {
+#container > #choices-picker {
     display: flex;
+    flex: 1;
     align-items: center;
     justify-content: center;
     gap: 100px;
@@ -203,7 +207,7 @@ body > #container {
     width: auto;
 }
 
-#footer {
+#container > #footer {
     height: 48px;
     color: #fff;
     font-size: 15px;
