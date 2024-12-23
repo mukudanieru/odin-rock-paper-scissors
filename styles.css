@@ -17,12 +17,14 @@ body > #container {
     flex-direction: column;
 }
 
+#container > div {
+    border: 1px solid gray;
+}
+
 #header {
     display: flex;
     align-items: center;
     justify-content: center;
-
-    border: 1px solid gray;
 }
 
 .scoreboard {
@@ -92,8 +94,6 @@ body > #container {
 }
 
 #container > #choices-display {
-    border: 1px solid gray;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -164,3 +164,39 @@ body > #container {
     font-weight: bold;
     text-align: center;
 }
+
+#choices-picker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+}
+
+.picker-button {
+    /* background-color: #505168; */
+    background-color: transparent;
+    border-radius: 12px;
+    margin: 25px 0px;
+    height: 150px;
+    width: 150px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.picker-button:hover {
+    background-color: #505168;
+}
+
+.picker-button:active {
+    background-color: #787992;
+}
+
+.picker-button > img {
+    height: 70%;
+    width: auto;
+}
+
+/* remember the four section of divs I talked about you? the thing is I never set them any height or width. I just kinda let the  */

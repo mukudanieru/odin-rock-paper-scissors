@@ -6,7 +6,12 @@ let computerScore = 0;
 const userScoreElement = document.querySelector(".user-container > .user-score");
 const computerScoreElement = document.querySelector(".cpu-container > .cpu-score");
 
-initializeScore();
+const choicesPicker = document.querySelector("#choices-picker");
+
+document.addEventListener("DOMContentLoaded", () => {
+    initializeScore();
+    getHumanChoice();
+});
 
 function initializeScore() {
     userScoreElement.textContent = humanScore;
@@ -39,22 +44,17 @@ function playRound(humanChoice, computerChoice) {
 }
 
 function getHumanChoice() {
-    let choice;
+    // let choice;
 
-    while (true) {
-        const PROMPT_TEXT = `Choose between these:
-        [1] - rock
-        [2] - paper
-        [3] - scissors`;
+    choicesPicker.addEventListener("click", (event) => {
+        let target = event.target.closest("button");
     
-        choice = Number(prompt(PROMPT_TEXT));
-        
-        if ((choice - 1) >= (CHOICES.length - CHOICES.length) && (choice - 1) < CHOICES.length) {
-            return CHOICES[choice - 1];
+        if (target == null) {
+            return;
         }
-
-        alert("Invalid choice: try again!");
-    }
+    
+        console.log(target.dataset.choice);
+    });
 }
 
 function getComputerChoice() {
