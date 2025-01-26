@@ -24,6 +24,44 @@ function initializeScore() {
 }
 
 function playRound(humanChoice, computerChoice) {
+    displayChoices(humanChoice, computerChoice);
+
+    const status = document.querySelector(".info-text > #status");
+    const detailedInfo = document.querySelector(".info-text > #detailed-info");
+
+    const winMessages = {
+        rock: "Rock crushes scissors.",
+        paper: "Paper covers rock.",
+        scissors: "Scissors cut paper.",
+    };
+
+    if (humanChoice === computerChoice) {
+        status.textContent = "IT'S A TIE!";
+        detailedInfo.textContent = `Both chose ${humanChoice}.`;
+        return;
+    }
+
+    if (
+        (humanChoice == "rock" && computerChoice == "scissors") ||
+        (humanChoice == "paper" && computerChoice == "rock") ||
+        (humanChoice == "scissors" && computerChoice == "paper")
+    ) {
+        status.textContent = "YOU WIN!";
+        detailedInfo.textContent = winMessages[humanChoice];
+        userScoreElement.textContent = ++humanScore;
+    } else {
+        const loseMessages = {
+            rock: "Rock is crushed by paper.",
+            paper: "Paper is cut by scissors.",
+            scissors: "Scissors are crushed by rock.",
+        };
+        status.textContent = "YOU LOSE!";
+        detailedInfo.textContent = loseMessages[computerChoice];
+        computerScoreElement.textContent = ++computerScore;
+    }
+}
+
+function displayChoices(humanChoice, computerChoice) {
     const rockImg = "./assets/rock.svg";
     const paperImg = "./assets/paper.svg";
     const scissorsImg = "./assets/scissors.svg";
@@ -41,7 +79,9 @@ function playRound(humanChoice, computerChoice) {
             userImg.src = scissorsImg;
             break;
     }
-    userImg.style.visibility = "visible";
+    if (!userImg.style.visibility) {
+        userImg.style.visibility = "visible";
+    }
 
     const cpuImg = document.querySelector(".cpu-choice > .img-choice");
 
@@ -56,7 +96,9 @@ function playRound(humanChoice, computerChoice) {
             cpuImg.src = scissorsImg;
             break;
     }
-    cpuImg.style.visibility = "visible";
+    if (!cpuImg.style.visibility) {
+        cpuImg.style.visibility = "visible";
+    }
 }
 
 function getHumanChoice(callback) {

@@ -156,7 +156,7 @@ body > #container {
     align-items: center;
 }
 
-.info-text > .status {
+.info-text > #status {
     width: 80%;
     color: #fff;
     font-size: 28px;
@@ -166,7 +166,7 @@ body > #container {
     margin: 16px 0px;
 }
 
-.info-text > .detailed-info {
+.info-text > #detailed-info {
     width: 85%;
     color: #fff;
     font-size: 18px;
