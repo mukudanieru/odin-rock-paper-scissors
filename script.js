@@ -3,14 +3,19 @@ const CHOICES = ["rock", "paper", "scissors"];
 let humanScore = 0;
 let computerScore = 0;
 
-const userScoreElement = document.querySelector(".user-container > .user-score");
-const computerScoreElement = document.querySelector(".cpu-container > .cpu-score");
-
-const choicesPicker = document.querySelector("#choices-picker");
+const userScoreElement = document.querySelector(
+    ".user-container > .user-score"
+);
+const computerScoreElement = document.querySelector(
+    ".cpu-container > .cpu-score"
+);
 
 document.addEventListener("DOMContentLoaded", () => {
     initializeScore();
-    getHumanChoice();
+
+    getHumanChoice((humanChoice) => {
+        playRound(humanChoice, getComputerChoice());
+    });
 });
 
 function initializeScore() {
@@ -19,41 +24,52 @@ function initializeScore() {
 }
 
 function playRound(humanChoice, computerChoice) {
-    alert(`Computer choice: ${computerChoice}`);
+    const rockImg = "./assets/rock.svg";
+    const paperImg = "./assets/paper.svg";
+    const scissorsImg = "./assets/scissors.svg";
 
-    if (humanChoice === computerChoice) {
-        console.log(`It's a tie! Both chose ${humanChoice}.`);
-        alert(`It's a tie! Both chose ${humanChoice}.`);
-    } else if (humanChoice === "rock" && computerChoice === "scissors") {
-        console.log(`You won! ${humanChoice} crushes ${computerChoice}.`);
-        alert(`You won! ${humanChoice} crushes ${computerChoice}.`)
-        humanScore++;
-    } else if (humanChoice === "paper" && computerChoice === "rock") {
-        console.log(`You won! ${humanChoice} covers ${computerChoice}.`);
-        alert(`You won! ${humanChoice} covers ${computerChoice}.`)
-        humanScore++;
-    } else if (humanChoice === "scissors" && computerChoice === "paper") {
-        console.log(`You won! ${humanChoice} cut ${computerChoice}.`)
-        alert(`You won! ${humanChoice} cut ${computerChoice}.`);
-        humanScore++;
-    } else {
-        console.log(`You lost! ${computerChoice} beats ${humanChoice}.`)
-        alert(`You lost! ${computerChoice} beats ${humanChoice}.`);
-        computerScore++;
+    const userImg = document.querySelector(".user-choice > .img-choice");
+
+    switch (humanChoice) {
+        case "rock":
+            userImg.src = rockImg;
+            break;
+        case "paper":
+            userImg.src = paperImg;
+            break;
+        case "scissors":
+            userImg.src = scissorsImg;
+            break;
     }
+    userImg.style.visibility = "visible";
+
+    const cpuImg = document.querySelector(".cpu-choice > .img-choice");
+
+    switch (computerChoice) {
+        case "rock":
+            cpuImg.src = rockImg;
+            break;
+        case "paper":
+            cpuImg.src = paperImg;
+            break;
+        case "scissors":
+            cpuImg.src = scissorsImg;
+            break;
+    }
+    cpuImg.style.visibility = "visible";
 }
 
-function getHumanChoice() {
-    // let choice;
+function getHumanChoice(callback) {
+    const choicesPicker = document.querySelector("#choices-picker");
 
     choicesPicker.addEventListener("click", (event) => {
         let target = event.target.closest("button");
-    
+
         if (target == null) {
             return;
         }
-    
-        console.log(target.dataset.choice);
+
+        callback(target.dataset.choice);
     });
 }
 

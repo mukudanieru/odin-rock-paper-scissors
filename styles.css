@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 * {
     margin: 0;
@@ -9,7 +9,7 @@
 
 body {
     min-height: 100vh;
-    background-color: #2B2D42;
+    background-color: #2b2d42;
 }
 
 a {
@@ -17,14 +17,14 @@ a {
     color: white;
 }
 
-
 body > #container {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-#header, #footer {
+#header,
+#footer {
     flex: 0 0 auto;
 }
 
@@ -42,7 +42,7 @@ body > #container {
     width: 450px;
     height: 100px;
 
-    background-color: #8D99AE;
+    background-color: #8d99ae;
     border-radius: 5px;
     margin: 25px;
 
@@ -96,7 +96,7 @@ body > #container {
     font-weight: bold;
     flex: 0 0 75%;
 
-    display: flex; 
+    display: flex;
     justify-content: center;
 }
 
@@ -141,6 +141,7 @@ body > #container {
 
 .user-choice > .img-choice,
 .cpu-choice > .img-choice {
+    visibility: hidden;
     width: 80%;
     height: 80%;
 }

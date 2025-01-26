@@ -1,74 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>rock-paper-scissors</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>rock-paper-scissors</title>
 
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div id="container">
-      <div id="header">
-        <div class="scoreboard">
-          <div class="user-container">
-            <div class="user-title">USER</div>
-            <div class="user-score"></div>
-          </div>
-          <div class="title-container">
-            <div class="title">ROCK PAPER SCISSORS</div>
-          </div>
-          <div class="cpu-container">
-            <div class="cpu-title">COMPUTER</div>
-            <div class="cpu-score"></div>
-          </div>
-        </div>
-      </div>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div id="container">
+            <div id="header">
+                <div class="scoreboard">
+                    <div class="user-container">
+                        <div class="user-title">USER</div>
+                        <div class="user-score"></div>
+                    </div>
+                    <div class="title-container">
+                        <div class="title">ROCK PAPER SCISSORS</div>
+                    </div>
+                    <div class="cpu-container">
+                        <div class="cpu-title">COMPUTER</div>
+                        <div class="cpu-score"></div>
+                    </div>
+                </div>
+            </div>
 
-      <div id="choices-display">
-        <div class="choice-container">
-          <div class="user-choice-title">YOU</div>
-          <div class="user-choice"></div>
-        </div>
-        <div class="info-text">
-          <div class="status">PICK A HAND!</div>
-          <div class="detailed-info">
-            The first to get 5 points wins the game.
-          </div>
-        </div>
-        <div class="choice-container">
-          <div class="cpu-choice-title">COMPUTER</div>
-          <div class="cpu-choice"></div>
-        </div>
-      </div>
+            <div id="choices-display">
+                <div class="choice-container">
+                    <div class="user-choice-title">YOU</div>
+                    <div class="user-choice">
+                        <img class="img-choice" />
+                    </div>
+                </div>
+                <div class="info-text">
+                    <div class="status">PICK A HAND!</div>
+                    <div class="detailed-info">
+                        The first to get 5 points wins the game.
+                    </div>
+                </div>
+                <div class="choice-container">
+                    <div class="cpu-choice-title">COMPUTER</div>
+                    <div class="cpu-choice">
+                        <img class="img-choice" />
+                    </div>
+                </div>
+            </div>
 
-      <div id="choices-picker">
-        <button class="picker-button" data-choice="rock">
-          <img src="./assets/rock.svg" alt="rock" /></button
-        ><button class="picker-button" data-choice="paper">
-          <img src="./assets/paper.svg" alt="paper" /></button
-        ><button class="picker-button" data-choice="scissors">
-          <img src="./assets/scissors.svg" alt="scissors" />
-        </button>
-      </div>
+            <div id="choices-picker">
+                <button class="picker-button" data-choice="rock">
+                    <img src="./assets/rock.svg" alt="rock" /></button
+                ><button class="picker-button" data-choice="paper">
+                    <img src="./assets/paper.svg" alt="paper" /></button
+                ><button class="picker-button" data-choice="scissors">
+                    <img src="./assets/scissors.svg" alt="scissors" />
+                </button>
+            </div>
 
-      <div id="footer">
-        Created by&nbsp;
-        <a
-          href="https://github.com/mukudanieru"
-          target="_blank"
-          rel="noopener noreferrer"
-          >mukudanieru</a
-        >
-        , as part of&nbsp;
-        <a
-          href="https://theodinproject.com/lessons/foundations-rock-paper-scissors"
-          target="_blank"
-          rel="noopener noreferrer"
-          >The Odin Project</a
-        >.
-      </div>
-    </div>
-    <script src="script.js"></script>
-  </body>
+            <div id="footer">
+                Created by&nbsp;
+                <a
+                    href="https://github.com/mukudanieru"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >mukudanieru</a
+                >
+                , as part of&nbsp;
+                <a
+                    href="https://theodinproject.com/lessons/foundations-rock-paper-scissors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    >The Odin Project</a
+                >.
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
 </html>
