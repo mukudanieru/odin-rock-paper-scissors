@@ -1,7 +1,7 @@
 const CHOICES = ["rock", "paper", "scissors"];
 
-let humanScore = 0;
-let computerScore = 0;
+let humanScore;
+let computerScore;
 
 const userScoreElement = document.querySelector(
     ".user-container > .user-score"
@@ -10,15 +10,22 @@ const computerScoreElement = document.querySelector(
     ".cpu-container > .cpu-score"
 );
 
+// MAIN
 document.addEventListener("DOMContentLoaded", () => {
     initializeScore();
 
     getHumanChoice((humanChoice) => {
-        playRound(humanChoice, getComputerChoice());
+        if (humanScore < 5 && computerScore < 5) {
+            playRound(humanChoice, getComputerChoice());
+        }
     });
+
+    restartGame();
 });
 
 function initializeScore() {
+    humanScore = 0;
+    computerScore = 0;
     userScoreElement.textContent = humanScore;
     computerScoreElement.textContent = computerScore;
 }
@@ -33,6 +40,11 @@ function playRound(humanChoice, computerChoice) {
         rock: "Rock crushes scissors.",
         paper: "Paper covers rock.",
         scissors: "Scissors cut paper.",
+    };
+    const loseMessages = {
+        rock: "Rock is crushed by paper.",
+        paper: "Paper is cut by scissors.",
+        scissors: "Scissors are crushed by rock.",
     };
 
     if (humanChoice === computerChoice) {
@@ -50,14 +62,13 @@ function playRound(humanChoice, computerChoice) {
         detailedInfo.textContent = winMessages[humanChoice];
         userScoreElement.textContent = ++humanScore;
     } else {
-        const loseMessages = {
-            rock: "Rock is crushed by paper.",
-            paper: "Paper is cut by scissors.",
-            scissors: "Scissors are crushed by rock.",
-        };
         status.textContent = "YOU LOSE!";
-        detailedInfo.textContent = loseMessages[computerChoice];
+        detailedInfo.textContent = loseMessages[humanChoice];
         computerScoreElement.textContent = ++computerScore;
+    }
+
+    if (humanScore === 5 || computerScore === 5) {
+        endGame(humanChoice, computerChoice, winMessages, loseMessages);
     }
 }
 
@@ -99,6 +110,35 @@ function displayChoices(humanChoice, computerChoice) {
     if (!cpuImg.style.visibility) {
         cpuImg.style.visibility = "visible";
     }
+}
+
+function endGame(humanChoice, computerChoice, winMessages, loseMessages) {
+    const status = document.querySelector(".info-text > #status");
+    const detailedInfo = document.querySelector(".info-text > #detailed-info");
+    const tryAgainButton = document.querySelector(
+        ".info-text > #try-again-button"
+    );
+
+    if (humanScore === 5) {
+        status.style.fontSize = "16px";
+        status.textContent = "CONGRATULATIONS!";
+        detailedInfo.textContent = `YOU WON! ${winMessages[humanChoice]}`;
+    } else if (computerScore === 5) {
+        status.textContent = "GAME OVER!";
+        detailedInfo.textContent = `YOU LOST! ${loseMessages[humanChoice]}`;
+    }
+
+    tryAgainButton.style.visibility = "visible";
+}
+
+function restartGame() {
+    const tryAgainButton = document.querySelector(
+        ".info-text > #try-again-button"
+    );
+
+    tryAgainButton.addEventListener("click", (event) => {
+        location.reload();
+    });
 }
 
 function getHumanChoice(callback) {
